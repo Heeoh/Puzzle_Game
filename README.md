@@ -2,7 +2,7 @@
 
 방탈 라이브러리를 이용한 퍼즐 맞추기 게임입니다.
 
-![image](https://user-images.githubusercontent.com/70556633/93705423-25e9e200-fb58-11ea-8ad0-f15ef8ee56b0.png)
+![image](https://user-images.githubusercontent.com/70556633/93705816-76167380-fb5b-11ea-8abd-c3c52a120f06.png)
 - 2가지 종류의 퍼즐을 선택할 수 있습니다.
 
 ![image](https://user-images.githubusercontent.com/70556633/93705453-69dce700-fb58-11ea-9af0-592fcfa56792.png)
