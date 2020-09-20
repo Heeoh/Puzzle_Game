@@ -573,7 +573,11 @@ home(start page)
 		return true;
 		});
 
-
+	auto endbutton = Object::create("images/endbutton.jpg", home, 1100, 0);
+	endbutton->setOnMouseCallback([&](ObjectPtr object, int x, int y, MouseAction action) -> bool {
+		endGame();
+		return true;
+		});
 
 	startGame(home);
 
