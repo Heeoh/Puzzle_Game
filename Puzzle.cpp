@@ -119,6 +119,7 @@ void mix_puzzle(Puzzle board[], Puzzle& b, Info& info, int& count) {
 
 }
 
+// 파일에서 최고 기록을 읽기
 bool read_file(float& bestT, int N) {
 	ifstream recordFile;
 	recordFile.open("record.txt");
@@ -162,6 +163,7 @@ bool read_file(float& bestT, int N) {
 	}
 }
 
+// 파일에 최고기록을 업데이트 하기
 void update_file(float& best, int N) {
 	float best1, best2;
 	read_file(best1, 0);
@@ -219,12 +221,16 @@ void isSolved(Puzzle board[], int n, clock_t startT, float& best, int N) {
 }
 
 // home에서 퍼즐 선택 or restart 클릭 --> 모든 퍼즐의 위치를 원래대로 한 후 숨김
-void resetting(Puzzle board[], Info info) {
-	for (int i = 1; i <= info.num; i++) {
+void resetting(Puzzle board[], Puzzle& b, Info info) {
+	for (int i = 1; i < info.num; i++) {
 		board[i].location = i;
 		locate_puzzle(board[i].object, info.scene, i, info.sqrtN, info.x, info.xd, info.y, info.yd);
 		board[i].object->hide();
 	}
+	b.location = info.num;
+	locate_puzzle(b.object, info.scene, info.num, info.sqrtN, info.x, info.xd, info.y, info.yd);
+	b.object->hide();
+
 	return;
 }
 
@@ -343,7 +349,7 @@ int main() {
 
 		// restart
 		game[N].restart->setOnMouseCallback([&](ObjectPtr, int, int, MouseAction)->bool {
-			resetting(game[N].board, game[N].info);
+			resetting(game[N].board, game[N].blank, game[N].info);
 			game[N].start->show();
 			return true;
 			});
@@ -386,7 +392,7 @@ int main() {
 		else return false;
 
 		game[*pN].info.scene->enter();
-		resetting(game[*pN].board, game[*pN].info);
+		resetting(game[*pN].board, game[*pN].blank, game[*pN].info);
 		game[*pN].start->show();
 
 		return true;
