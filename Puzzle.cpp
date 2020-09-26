@@ -35,7 +35,7 @@ const int N_of_Puzzle = 2;	// 퍼즐 개수, 2개
 const int num1 = 9;			// 3 by 3 puzzle1
 const int num2 = 16;		// 4 by 4 puzzle2
 
-const int MAX_COUNT = 3;
+const int MAX_COUNT = 50;
 
 
 /*============================================================================================================*/
