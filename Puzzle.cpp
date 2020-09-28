@@ -60,7 +60,7 @@ bool isMoved(Puzzle& p, Puzzle& b, Info info) {
 		locate_puzzle(p.object, info.scene, p.location, n, info.x, info.xd, info.y, info.yd);
 		locate_puzzle(b.object, info.scene, b.location, n, info.x, info.xd, info.y, info.yd);
 
-		cout << "move " << p.location << " <-> " << b.location << "\tnow blaink is at " << b.location << endl;
+		//cout << "move " << p.location << " <-> " << b.location << "\tnow blaink is at " << b.location << endl;
 
 		return true;
 	}
@@ -74,7 +74,7 @@ void mix_puzzle(Puzzle board[], Puzzle& b, Info& info, int& count) {
 	auto timer = Timer::create(0.1f);
 
 	timer->setOnTimerCallback([=, &b, &count](TimerPtr t)->bool {
-		cout << "timeout " << count << endl;
+		//cout << "timeout " << count << endl;
 		int newBlank = 0;
 		int n = info.sqrtN;
 
@@ -130,7 +130,7 @@ bool read_file(float& bestT, int N) {
 			string str;
 			getline(recordFile, str);
 
-			cout << "str : " << str << endl;
+			//cout << "str : " << str << endl;
 
 			int p;
 			if (N == 0) {
